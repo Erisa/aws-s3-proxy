@@ -15,7 +15,7 @@ RUN githash=$(git rev-parse --short HEAD 2>/dev/null) \
     -ldflags '-s -w -X main.ver=${APP_VERSION} -X main.commit=${githash} -X main.date=${today}' \
     -o /app
 
-FROM alpine:3.13D AS libs
+FROM alpine:3.13 AS libs
 RUN apk --no-cache add ca-certificates
 
 FROM scratch
