@@ -11,7 +11,7 @@ RUN go mod download
 RUN go mod verify
 RUN githash=$(git rev-parse --short HEAD 2>/dev/null) \
     && today=$(date +%Y-%m-%d --utc) \
-    && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build \
+    && CGO_ENABLED=0 GOOS=linux go build \
     -ldflags '-s -w -X main.ver=${APP_VERSION} -X main.commit=${githash} -X main.date=${today}' \
     -o /app
 
