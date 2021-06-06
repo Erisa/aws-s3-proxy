@@ -9,7 +9,7 @@ ARG TARGETARCH
 
 RUN apk --no-cache add gcc musl-dev git
 WORKDIR /go/src/github.com/pottava/aws-s3-proxy
-ENV APP_VERSION=v2.0.0
+ENV APP_VERSION=v2.0.2-eri
 RUN git clone https://github.com/Erisa/aws-s3-proxy --depth=1 -b "${APP_VERSION}" .
 RUN go mod download
 RUN go mod verify
