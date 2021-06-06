@@ -7,7 +7,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
-	"github.com/dgrijalva/jwt-go"
+	"github.com/form3tech-oss/jwt-go"
 	"github.com/pottava/aws-s3-proxy/internal/config"
 	"github.com/stretchr/testify/assert"
 )
