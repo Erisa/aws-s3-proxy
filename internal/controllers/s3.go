@@ -116,7 +116,6 @@ func setHeadersFromAwsResponse(w http.ResponseWriter, obj *s3.GetObjectOutput, h
 		setIntHeader(w, "Content-Length", obj.ContentLength)
 		setStrHeader(w, "Accept-Range", obj.AcceptRanges)
 	}
-	setStrHeader(w, "Accept-Range", obj.AcceptRanges)
 	setStrHeader(w, "Content-Range", obj.ContentRange)
 	setStrHeader(w, "Content-Type", obj.ContentType)
 	setStrHeader(w, "ETag", obj.ETag)
