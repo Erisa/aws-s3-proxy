@@ -116,6 +116,9 @@ func setHeadersFromAwsResponse(w http.ResponseWriter, obj *s3.GetObjectOutput, h
 		setIntHeader(w, "Content-Length", obj.ContentLength)
 		setStrHeader(w, "Accept-Range", obj.AcceptRanges)
 	}
+
+	setStrHeaderRaw(w, "Cache-Control", "no-transform")
+
 	setStrHeader(w, "Content-Range", obj.ContentRange)
 	setStrHeader(w, "Content-Type", obj.ContentType)
 	setStrHeader(w, "ETag", obj.ETag)
@@ -127,6 +130,12 @@ func setHeadersFromAwsResponse(w http.ResponseWriter, obj *s3.GetObjectOutput, h
 func setStrHeader(w http.ResponseWriter, key string, value *string) {
 	if value != nil && len(*value) > 0 {
 		w.Header().Add(key, *value)
+	}
+}
+
+func setStrHeaderRaw(w http.ResponseWriter, key string, value string) {
+	if len(value) > 0 {
+		w.Header().Add(key, value)
 	}
 }
 
